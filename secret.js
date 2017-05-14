@@ -1,5 +1,28 @@
 'use strict';
 var program = require('commander');
+var fs = require('fs');
+// in case nodejs was built without crypto module throws an error
+var crypto;
+	try {
+		crypto = require('crypto');
+	} catch (err) {
+		console.log('crypto support is disabled!');
+	}
+
+program
+	.command('read a file <file>')
+	.description('read a file')
+	.action(function(file) {
+		console.log(file)
+		var input = fs.createReadStream(file);
+		var output = fs.createWriteStream(file + '.enc');
+		var cipher = crypto.createCipher('aes-256-cbc', 'password');
+		input.pipe(cipher).pipe(output);
+		output.on('finish', function() {
+			console.log('Encrypted file written to disk!');
+			console.log('Filename: ' + file + '.enc');
+		});
+	})
 
 program
   .version('0.0.1')

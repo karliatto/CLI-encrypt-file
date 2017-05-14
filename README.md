@@ -35,3 +35,43 @@ node secret --help
 node secret --version 
 
 ```
+
+## Using 'File System' and 'crypto' modules from [NODEJS](https://nodejs.org/api/)
+
+- [fs.createReadStream](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
+
+```javascript
+		var input = fs.createReadStream(file);
+		var output = fs.createWriteStream(file + '.enc');
+```
+
+- [create cipher](https://nodejs.org/api/crypto.html#crypto_crypto_createcipher_algorithm_password)
+['pipe' event in nodejs](https://nodejs.org/api/stream.html#stream_event_pipe)
+
+```javacript
+// in case nodejs was built without crypto module throws an error
+var crypto;
+	try {
+		crypto = require('crypto');
+	} catch (err) {
+		console.log('crypto support is disabled!');
+	}
+
+```
+
+```javascript
+var cipher = cipher = crypto.createCipher('aes-256-cbc', 'password');
+input.pipe(cipher).pipe(output);
+
+```
+At this point we can test if it all is working
+```bash
+node secret read testfile.txt
+```
+
+We can see the file was encrypted but we do not see any output, to solve this we can use the 'on' event from nodejs
+
+- ['on' event in nodejs](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener)
+
+	
+
