@@ -41,8 +41,8 @@ node secret --version
 - [fs.createReadStream](https://nodejs.org/api/fs.html#fs_fs_createreadstream_path_options)
 
 ```javascript
-		var input = fs.createReadStream(file);
-		var output = fs.createWriteStream(file + '.enc');
+var input = fs.createReadStream(file);
+var output = fs.createWriteStream(file + '.enc');
 ```
 
 - [create cipher](https://nodejs.org/api/crypto.html#crypto_crypto_createcipher_algorithm_password)
