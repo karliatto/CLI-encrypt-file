@@ -93,4 +93,11 @@ inquirer.prompt(questions).then(function (answers) {
 })
 ```
 
+## Improving the output with [chalk](https://github.com/chalk/chalk)
 
+```bash
+npm install chalk --save
+```
+```javascript
+console.log(chalk.green('success'));
+```

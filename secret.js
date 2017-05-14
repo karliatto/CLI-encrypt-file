@@ -2,6 +2,7 @@
 var program = require('commander');
 var fs = require('fs');
 var inquirer = require('inquirer');
+var chalk = require('chalk');
 // in case nodejs was built without crypto module throws an error
 var crypto;
 	try {
@@ -31,6 +32,7 @@ program
 			output.on('finish', function() {
 				console.log('Encrypted file written to disk!');
 				console.log('Filename: ' + file + '.enc');
+				console.log(chalk.green('success'));
 			});
 		});
 	})
