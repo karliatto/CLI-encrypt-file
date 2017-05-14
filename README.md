@@ -72,6 +72,12 @@ node secret read testfile.txt
 We can see the file was encrypted but we do not see any output, to solve this we can use the 'on' event from nodejs
 
 - ['on' event in nodejs](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener)
+```javascript
+output.on('finish', function() {
+	console.log('Encrypted file written to disk!');
+	console.log('Filename: ' + file + '.enc');
+});
+```
 
 ## Improving user experience with [inquirer](https://github.com/sboudrias/Inquirer.js)
 
