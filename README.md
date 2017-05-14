@@ -73,5 +73,24 @@ We can see the file was encrypted but we do not see any output, to solve this we
 
 - ['on' event in nodejs](https://nodejs.org/api/events.html#events_emitter_on_eventname_listener)
 
-	
+## Improving user experience with [inquirer](https://github.com/sboudrias/Inquirer.js)
+
+```bash
+npm install inquirer --save
+```
+
+```javascript
+var inquirer = require('inquirer');
+var questions = [
+		{
+			type: 'password',
+			name: 'key',
+			message: 'Insert a password to encrypt the file: ' + file ,
+			default: false
+		}]
+inquirer.prompt(questions).then(function (answers) {
+	// callback goes here
+})
+```
+
 
