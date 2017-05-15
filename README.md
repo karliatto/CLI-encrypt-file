@@ -107,3 +107,17 @@ npm install chalk --save
 ```javascript
 console.log(chalk.green('success'));
 ```
+
+## Finally doing a bash command
+[Shebang](https://en.wikipedia.org/wiki/Shebang_(Unix))
+add #!/usr/bin/env node to the js script
+
+```javascript
+"bin": {
+    "secret": "./secret.js"
+  },
+```
+
+```bash
+sudo npm install -g
+```
